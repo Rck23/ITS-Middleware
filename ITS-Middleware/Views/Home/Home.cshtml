@@ -1,0 +1,90 @@
+﻿@model ITS_Middleware.Models.Entities.Usuario
+
+@if (ViewBag.email == null)
+{
+    <h1 class="text-danger">Login to access</h1>
+}
+else
+{
+    <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h1>Portal de Configuración</h1>
+        </div>
+        <div class="col-md-4">
+            <p>Hola @ViewBag.email </p>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+
+            <h3>Usuarios</h3>
+            <form asp-controller="auth" asp-action="Registro" method="post">
+
+                <label for="nombre" class="label-form">Nombre:</label>
+                <input class="form-control" name="nombre" asp-for="nombre" id="nombre" placeholder="Nombre"/>
+
+                <label for="fecha" class="label-form">puesto:</label>
+                <input class="form-control" id="puesto" asp-for="puesto" name="puesto" placeholder="Puesto"/>
+
+                <label for="fecha" class="label-form">Correo electrónico</label>
+                <input class="form-control" id="email" asp-for="email" name="email" placeholder="Correo electrónico"/>
+
+                <label for="fecha" class="label-form">password</label>
+                <input class="form-control" type="password" asp-for="pass" name="pass" id="pass" placeholder="*****" />
+
+                <label for="fecha" class="label-form">Fecha Alta</label>
+                <input class="form-control"  asp-for="fechaAlta" name="fechaAlta" id="fechaAlta" placeholder="dd/mm/yyyy" />
+
+             
+              <button class="btn btn-warning" type="submit" value="Registro" >REGISTRAR</button>
+              
+
+             </form>
+
+        </div>
+        <div class="col-md-6">
+            <h3>Proyectos</h3>
+            <form>
+
+                <label for="fecha" class="label-form">usuario:</label>
+                <input class="form-control" id="usuario" placeholder="usuario"/>
+
+                <label for="fecha" class="label-form">password</label>
+              <input class="form-control" type="password" name="password" id="password" placeholder="•••••" />
+
+                <label for="pr-nombre" class="label-form">Nombre de proyecto:</label>
+                <input class="form-control" id="pr-nombre" placeholder="Nombre de proyecto"/>
+
+                <label for="pr-nombre" class="label-form">consulta</label>
+                <input class="form-control" id="consulta" placeholder="consulta"/>
+
+                    <label for="autenticacion" class="label-form">la autenticacion:</label>
+                 <select class="form-select" aria-label="autenticacion">
+                 <option selected>autenticacion</option>
+                 <option value="1">Cifrado de autenticación SSO</option>
+                  <option value="2">Cifrado de autenticación Oauth 2.0</option>
+
+     </select>
+
+            
+                <label for="cifrado" class="label-form">tipo de cifrado:</label>
+                 <select class="form-select" aria-label="cifrado">
+                 <option selected>tipo de cifrado</option>
+                 <option value="1">sha-256</option>
+                  <option value="2">aes-256</option>
+
+               
+
+     </select>
+                  
+</form>
+         
+
+    </div>
+</div>
+</div>
+}

@@ -1,0 +1,42 @@
+﻿@using ITS_Middleware.Models.Entities
+
+@using System.Linq.Expressions
+@model List<Usuario>
+
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+<h1>Usuarios</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Puesto</th>
+            <th>Fecha de Alta</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (Usuario user in Model) 
+    {
+        <tr>
+            <td>@user.nombre</td>
+            <td>@user.email</td>
+            <td>@user.puesto</td>
+            <td>@user.fechaAlta</td>
+            <td>
+                <a class="btn btn-success" asp-controller="auth" asp-route-id="@user.id" asp-action="Edit" >
+                    <span class="material-icons">edit</span>
+                </a>
+                <a class="btn btn-danger" asp-controller="auth" asp-route-id="@user.id" asp-action="Eliminar">
+                    <span class="material-icons">delete</span>
+                </a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
